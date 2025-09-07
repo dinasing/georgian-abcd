@@ -1,11 +1,8 @@
 import { useState } from "react";
+import speak from "../utils/speak";
 
 export default function LetterCard({ letter }) {
   const [showExample, setShowExample] = useState(false);
-
-  const speak = (audio) => {
-    new Audio(audio).play()
-  };
 
   return (
     <div className="p-6 bg-white rounded-2xl shadow-lg text-center">
