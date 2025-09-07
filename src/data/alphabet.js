@@ -28,11 +28,10 @@ const alphabet = [
     { symbol: "ც", sound: "ц", example: { word: "ცხენი", transcription: "[цхэни]", translation: "лошадь", audio: "/audio/ცხენი.mp3" } },
     { symbol: "ძ", sound: "дз", example: { word: "ძმა", transcription: "[дзма]", translation: "брат", audio: "/audio/ძმა.mp3" } },
     { symbol: "წ", sound: "ц*", example: { word: "წიგნი", transcription: "[ц*игни]", translation: "книга", audio: "/audio/წიგნი.mp3" } },
-    { symbol: "ჭ", sound: "ч*", example: { word: "ჭაღი", transcription: "[ч*аги]", translation: "люстра", audio: "/audio/ჭაღი.mp3" } },
+    { symbol: "ჭ", sound: "ч*", example: { word: "ჭაღი", transcription: "[ч*агхи]", translation: "люстра", audio: "/audio/ჭაღი.mp3" } },
     { symbol: "ხ", sound: "х", example: { word: "ხატი", transcription: "[хати]", translation: "икона", audio: "/audio/ხატი.mp3" } },
     { symbol: "ჯ", sound: "дж", example: { word: "ჯინსი", transcription: "[джинси]", translation: "джинсы", audio: "/audio/ჯინსი.mp3" } },
     { symbol: "ჰ", sound: "х", example: { word: "ჰაერი", transcription: "[хаэри]", translation: "воздух", audio: "/audio/ჰაერი.mp3" } },
   ];
-  
-  export default alphabet;
-  
+
+export default alphabet;
