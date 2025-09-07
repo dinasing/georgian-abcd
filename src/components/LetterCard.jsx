@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import speak from "../utils/speak";
 
 export default function LetterCard({ letter }) {
@@ -6,7 +7,13 @@ export default function LetterCard({ letter }) {
 
   return (
     <div className="p-6 bg-white rounded-2xl shadow-lg text-center">
-      <h2 className="text-6xl font-bold mb-4">{letter.symbol}</h2>
+      <Link
+        to={`/letter/${letter.symbol}`}
+        className="mt-2 block px-3 py-1 rounded-lg"
+      >
+        <h2 className="text-6xl font-bold mb-4">{letter.symbol}</h2>
+      </Link>
+
       <p className="text-xl">Похоже на русскую: {letter.sound}</p>
 
       <button
@@ -29,6 +36,6 @@ export default function LetterCard({ letter }) {
           </button>
         </div>
       )}
-    </div>
+     </div>
   );
 }
