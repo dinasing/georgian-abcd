@@ -1,6 +1,6 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import alphabet from "../data/alphabet";
-import speak from "../utils/speak";
+import AudioButton from "./AudioButton";
 
 export default function LetterPage() {
   const { symbol } = useParams();
@@ -59,14 +59,7 @@ export default function LetterPage() {
         <p>Пример: <strong>{letter.example.word}</strong></p>
         <p>Транскрипция: {letter.example.transcription}</p>
         <p>Перевод: {letter.example.translation}</p>
-        {letter.example.audio && (
-          <button
-            onClick={() => speak(letter.example.audio)}
-            className="mt-2 px-3 py-1 bg-blue-500 text-white rounded-lg"
-          >
-            🔊 Слушать
-          </button>
-        )}
+        <AudioButton src={letter.example.audio} label="Слушать слово" />
       </div>
 
       {related.length > 0 && (

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import speak from "../utils/speak";
+import AudioButton from "./AudioButton";
 
 export default function LetterCard({ letter }) {
   const [showExample, setShowExample] = useState(false);
@@ -28,12 +28,7 @@ export default function LetterCard({ letter }) {
           <p className="text-2xl">{letter.example.word}</p>
           <p className="text-gray-600">{letter.example.transcription}</p>
           <p className="italic">{letter.example.translation}</p>
-          <button
-            onClick={() => speak(letter.example.audio)}
-            className="mt-2 px-3 py-1 bg-blue-400 text-white rounded-lg"
-          >
-            🔊 Слушать слово
-          </button>
+          <AudioButton src={letter.example.audio} label="Слушать слово" />
         </div>
       )}
      </div>

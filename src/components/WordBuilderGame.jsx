@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import speak from "../utils/speak";
+import AudioButton from "./AudioButton";
 
 export default function WordBuilderGame({ alphabet }) {
   const [wordData, setWordData] = useState(null);
@@ -78,11 +78,7 @@ export default function WordBuilderGame({ alphabet }) {
           Собери грузинское слово по транскрипции или звуку, выбирая буквы в правильном порядке
       </p>
       <p className="mb-4 text-center">
-        <button onClick={() => speak(wordData.audio)}
-            className="mt-2 px-3 py-1 bg-blue-400 text-white rounded-lg"
-         >
-            🔊 Слушать слово
-        </button>
+        <AudioButton src={wordData.audio} label="Слушать слово" autoPlay />
       </p>
 
       <p className="m-4 text-gray-600 text-center">
