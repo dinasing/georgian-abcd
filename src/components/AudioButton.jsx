@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 
-export default function AudioButton({ src, label = "Слушать", autoPlay = false }) {
+export default function AudioButton({
+  src,
+  label = "Слушать",
+  autoPlay = false,
+}) {
   const [audio, setAudio] = useState(null);
 
   useEffect(() => {

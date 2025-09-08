@@ -30,10 +30,7 @@ export default function MatchGame({ alphabet }) {
     if (!selected) {
       setSelected({ type, value });
     } else {
-      if (
-        selected.type !== type &&
-        selected.value.symbol === value.symbol
-      ) {
+      if (selected.type !== type && selected.value.symbol === value.symbol) {
         setMatches((prev) => [...prev, value.symbol]);
 
         if (matches.length == NUMBER_OF_LETTERS_PER_GAME - 1) {
@@ -108,7 +105,7 @@ export default function MatchGame({ alphabet }) {
         >
           🔄 Новая игра
         </button>
-        )}
+      )}
     </div>
   );
 }

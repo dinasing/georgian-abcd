@@ -13,7 +13,9 @@ export default function LetterPage() {
     return (
       <div className="p-6">
         <p>Буква не найдена</p>
-        <Link to="/" className="text-blue-500 underline">⬅️ На главную</Link>
+        <Link to="/" className="text-blue-500 underline">
+          ⬅️ На главную
+        </Link>
       </div>
     );
   }
@@ -30,7 +32,9 @@ export default function LetterPage() {
   return (
     <div className="p-6">
       <div className="flex justify-between items-center mb-4">
-        <Link to="/" className="text-blue-500 underline">⬅️ На главную</Link>
+        <Link to="/" className="text-blue-500 underline">
+          ⬅️ На главную
+        </Link>
 
         <div className="flex gap-2">
           {prev && (
@@ -56,7 +60,9 @@ export default function LetterPage() {
       <p className="text-xl mb-2">Звук: {letter.sound}</p>
 
       <div className="mb-4">
-        <p>Пример: <strong>{letter.example.word}</strong></p>
+        <p>
+          Пример: <strong>{letter.example.word}</strong>
+        </p>
         <p>Транскрипция: {letter.example.transcription}</p>
         <p>Перевод: {letter.example.translation}</p>
         <AudioButton src={letter.example.audio} label="Слушать слово" />

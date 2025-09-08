@@ -31,6 +31,6 @@ export default function LetterCard({ letter }) {
           <AudioButton src={letter.example.audio} label="Слушать слово" />
         </div>
       )}
-     </div>
+    </div>
   );
 }

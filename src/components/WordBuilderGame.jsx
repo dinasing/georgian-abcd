@@ -75,7 +75,8 @@ export default function WordBuilderGame({ alphabet }) {
         <h2 className="text-2xl font-bold">🎮 Игра: Собери слово</h2>
       </div>
       <p className="mb-4 text-gray-600">
-          Собери грузинское слово по транскрипции или звуку, выбирая буквы в правильном порядке
+        Собери грузинское слово по транскрипции или звуку, выбирая буквы в
+        правильном порядке
       </p>
       <p className="mb-4 text-center">
         <AudioButton src={wordData.audio} label="Слушать слово" autoPlay />
@@ -85,10 +86,10 @@ export default function WordBuilderGame({ alphabet }) {
         Транскрипция: {wordData.transcription}
       </p>
 
-    {/* Слоты */}
-    <div className="flex justify-center gap-2 mb-6">
+      {/* Слоты */}
+      <div className="flex justify-center gap-2 mb-6">
         {slots.map((s, i) => (
-            <div
+          <div
             key={i}
             onClick={() => handleSlotClick(i)}
             className={`w-10 h-12 border rounded-xl flex items-center justify-center text-2xl font-bold cursor-pointer
@@ -96,11 +97,11 @@ export default function WordBuilderGame({ alphabet }) {
                 ${status === "error" ? "bg-red-200" : ""}
                 ${s ? "hover:bg-yellow-100" : ""}`}
             title={s ? "Нажми, чтобы убрать букву" : ""}
-            >
+          >
             {s || "_"}
-            </div>
+          </div>
         ))}
-    </div>
+      </div>
 
       {/* Кнопки букв */}
       <div className="flex flex-wrap justify-center gap-2 mb-6">

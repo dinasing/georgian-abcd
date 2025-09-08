@@ -18,7 +18,6 @@ export default function App() {
         <Route path="/" element={<AlphabetGrid alphabet={alphabet} />} />
         <Route path="/game/match" element={<MatchGame alphabet={alphabet} />} />
         <Route path="/game/build" element={<WordBuilderGame alphabet={alphabet} />} />
-
         <Route path="/letter/:symbol" element={<LetterPage />} />
       </Routes>
     </Router>
