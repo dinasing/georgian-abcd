@@ -71,8 +71,12 @@ export default function WordBuilderGame({ alphabet }) {
 
   return (
     <div className="p-6">
-      <h2 className="text-2xl font-bold mb-4">✍️ Собери слово</h2>
-
+      <div className="flex items-center justify-between mb-4">
+        <h2 className="text-2xl font-bold">🎮 Игра: Собери слово</h2>
+      </div>
+      <p className="mb-4 text-gray-600">
+          Собери грузинское слово по транскрипции или звуку, выбирая буквы в правильном порядке
+      </p>
       <p className="mb-4 text-center">
         <button onClick={() => speak(wordData.audio)}
             className="mt-2 px-3 py-1 bg-blue-400 text-white rounded-lg"
