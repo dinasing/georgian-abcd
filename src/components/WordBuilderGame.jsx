@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import AudioButton from "./AudioButton";
 
 export default function WordBuilderGame({ alphabet }) {
@@ -6,6 +7,7 @@ export default function WordBuilderGame({ alphabet }) {
   const [slots, setSlots] = useState([]);
   const [letters, setLetters] = useState([]);
   const [status, setStatus] = useState(null); // "success" | "error" | null
+  const { t } = useTranslation();
 
   const startNewWord = () => {
     const random = alphabet[Math.floor(Math.random() * alphabet.length)];
@@ -72,18 +74,15 @@ export default function WordBuilderGame({ alphabet }) {
   return (
     <div className="p-6">
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-2xl font-bold">🎮 Игра: Собери слово</h2>
+        <h2 className="text-2xl font-bold">🎮 { t("games.build_name") }</h2>
       </div>
-      <p className="mb-4 text-gray-600">
-        Собери грузинское слово по транскрипции или звуку, выбирая буквы в
-        правильном порядке
-      </p>
+      <p className="mb-4 text-gray-600">{ t("games.build_description") }</p>
       <p className="mb-4 text-center">
-        <AudioButton src={wordData.audio} label="Слушать слово" autoPlay />
+        <AudioButton src={wordData.audio} autoPlay />
       </p>
 
       <p className="m-4 text-gray-600 text-center">
-        Транскрипция: {wordData.transcription}
+        {wordData.transcription}
       </p>
 
       {/* Слоты */}
@@ -96,7 +95,7 @@ export default function WordBuilderGame({ alphabet }) {
                 ${status === "success" ? "bg-green-200" : ""}
                 ${status === "error" ? "bg-red-200" : ""}
                 ${s ? "hover:bg-yellow-100" : ""}`}
-            title={s ? "Нажми, чтобы убрать букву" : ""}
+            title={s ? t("games.remove_letter") : ""}
           >
             {s || "_"}
           </div>
@@ -123,7 +122,7 @@ export default function WordBuilderGame({ alphabet }) {
             onClick={resetWord}
             className="px-4 py-2 rounded-xl bg-red-500 text-white hover:bg-red-600"
           >
-            🔄 Попробовать снова
+            { t("buttons.try_again")}
           </button>
         )}
         {status === "success" && (
@@ -131,8 +130,8 @@ export default function WordBuilderGame({ alphabet }) {
             onClick={startNewWord}
             className="px-4 py-2 rounded-xl bg-green-500 text-white hover:bg-green-600"
           >
-            ➡️ Следующее слово
-          </button>
+            { t("buttons.next_word")}
+            </button>
         )}
       </div>
     </div>

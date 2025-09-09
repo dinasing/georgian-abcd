@@ -1,0 +1,36 @@
+{
+    "nav": {
+        "learn": "📖 Learn letters",
+        "match": "🎮 Matching",
+        "build": "🎮 Word Builder"
+    },
+    "games": {
+        "match_description": "Match the Georgian letter with its English equivalent",
+        "build_description": "Build the Georgian word from its transcription or sound",
+        "build_name": "Game: Word Builder",
+        "match_name": "Game: Match the words",
+        "georgian_letters": "Georgian letter",
+        "equals": "English equivalent",
+        "new_game": "New game",
+        "remove_letter": "Click to remove the letter"
+    },
+    "buttons": {
+        "listen": "Listen to the word",
+        "try_again": "🔄 Try again",
+        "next_word": "➡️ Next word",
+        "listen_browser_error": "Autoplay is blocked by the browser"
+    },
+    "letter": {
+        "similar": "Similar to",
+        "example": "Example",
+        "transcription": "Transcription",
+        "translation": "Translation",
+        "related_words": "Words with this letter",
+        "back_home": "⬅️ Back to Alphabet",
+        "prev": "⏮️ Previous",
+        "next": "Next ⏭️",
+        "not_found": "Letter does not exist",
+        "show_example": "Show example",
+        "hide_example": "Hide example"
+    }
+}

@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function AudioButton({
   src,
-  label = "Слушать",
+  label = useTranslation().t('buttons.listen'),
   autoPlay = false,
 }) {
   const [audio, setAudio] = useState(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (src) {
@@ -17,7 +19,7 @@ export default function AudioButton({
         setTimeout(() => {
           audio.play().catch(() => {
             // браузеры иногда блокируют авто-плей без клика
-            console.warn("Автовоспроизведение заблокировано браузером");
+            alert(t("buttons.listen_browser_error"));
           });
         }, 300);
       }

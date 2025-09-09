@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import AudioButton from "./AudioButton";
 
 export default function LetterCard({ letter }) {
   const [showExample, setShowExample] = useState(false);
+  const { t } = useTranslation();
 
   return (
     <div className="p-6 bg-white rounded-2xl shadow-lg text-center">
@@ -14,13 +16,13 @@ export default function LetterCard({ letter }) {
         <h2 className="text-6xl font-bold mb-4">{letter.symbol}</h2>
       </Link>
 
-      <p className="text-xl">Похоже на русскую: {letter.sound}</p>
+      <p className="text-xl">{ t("letter.similar") } <i>{letter.sound}</i></p>
 
       <button
         onClick={() => setShowExample(!showExample)}
         className="mt-4 px-4 py-2 bg-green-500 text-white rounded-xl"
       >
-        {showExample ? "Скрыть пример" : "Показать пример"}
+        {showExample ? t("letter.hide_example") :t("letter.show_example") }
       </button>
 
       {showExample && (
@@ -28,7 +30,7 @@ export default function LetterCard({ letter }) {
           <p className="text-2xl">{letter.example.word}</p>
           <p className="text-gray-600">{letter.example.transcription}</p>
           <p className="italic">{letter.example.translation}</p>
-          <AudioButton src={letter.example.audio} label="Слушать слово" />
+          <AudioButton src={letter.example.audio} />
         </div>
       )}
     </div>

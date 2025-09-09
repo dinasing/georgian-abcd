@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function MatchGame({ alphabet }) {
   const [pairs, setPairs] = useState([]);
@@ -6,6 +7,7 @@ export default function MatchGame({ alphabet }) {
   const [selected, setSelected] = useState(null);
   const [matches, setMatches] = useState([]);
   const [status, setStatus] = useState(null); // "success" | "error" | null
+  const { t } = useTranslation();
 
   const NUMBER_OF_LETTERS_PER_GAME = 6;
 
@@ -46,16 +48,14 @@ export default function MatchGame({ alphabet }) {
   return (
     <div className="p-6">
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-2xl font-bold">🎮 Игра: Сопоставь буквы</h2>
+        <h2 className="text-2xl font-bold">🎮 { t("games.match_name") }</h2>
       </div>
-      <p className="mb-4 text-gray-600">
-        Соедини грузинскую букву с её русским аналогом
-      </p>
+      <p className="mb-4 text-gray-600">{ t("games.match_description") }</p>
 
       <div className="grid grid-cols-2 gap-6">
         {/* Левая колонка: грузинские буквы */}
         <div>
-          <h3 className="font-semibold mb-2 text-center">Грузинские буквы</h3>
+          <h3 className="font-semibold mb-2 text-center">{ t("games.georgian_letters") }</h3>
           {pairs.map((l, i) => (
             <button
               key={i}
@@ -77,7 +77,7 @@ export default function MatchGame({ alphabet }) {
 
         {/* Правая колонка: русские аналоги */}
         <div>
-          <h3 className="font-semibold mb-2 text-center">Русские аналоги</h3>
+          <h3 className="font-semibold mb-2 text-center">{ t("games.equals") }</h3>
           {russianColumn.map((l, i) => (
             <button
               key={i}
@@ -103,7 +103,7 @@ export default function MatchGame({ alphabet }) {
           onClick={startNewGame}
           className="flex mt-4 px-4 py-2 rounded-xl bg-green-500 text-white hover:bg-green-600 m-auto"
         >
-          🔄 Новая игра
+          🔄 { t("games.new_game") }
         </button>
       )}
     </div>
