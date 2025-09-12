@@ -1,8 +1,8 @@
 {
     "nav": {
-        "learn": "📖 Learn letters",
-        "match": "🎮 Matching",
-        "build": "🎮 Word Builder"
+        "learn": "📖 Alphabet",
+        "match": "🧩 Matching",
+        "build": "🧩 Word Builder"
     },
     "games": {
         "match_description": "Match the Georgian letter with its English equivalent",
