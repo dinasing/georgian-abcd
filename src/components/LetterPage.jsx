@@ -1,5 +1,7 @@
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { isLearned, setProgress } from "../utils/progress";
 import AudioButton from "./AudioButton";
 
 export default function LetterPage({ alphabet }) {
@@ -7,13 +9,23 @@ export default function LetterPage({ alphabet }) {
   const navigate = useNavigate();
   const { t } = useTranslation();
 
+  const [isLetterLearned, setLearned] = useState(false);
+
+  useEffect(() => {
+    setLearned(isLearned(symbol));
+  }, [symbol]);
+
+  const toggleLearned = () => {
+    setProgress(symbol, !isLetterLearned);
+    setLearned(!isLetterLearned);
+  };
   const index = alphabet.findIndex((l) => l.symbol === symbol);
   const letter = alphabet[index];
 
   if (!letter) {
     return (
       <div className="p-6">
-        <p>{ t("letter.not_found")}</p>
+        <p>{t("letter.not_found")}</p>
         <Link to="/" className="text-blue-500 underline">
           {t("letter.back_home")}
         </Link>
@@ -57,31 +69,50 @@ export default function LetterPage({ alphabet }) {
         </div>
       </div>
 
-      <h1 className="text-4xl font-bold mb-4">{letter.symbol}</h1>
-      <p className="text-xl mb-2">{ t("letter.similar") }: {letter.sound}</p>
+      <h1 className="text-6xl font-bold mb-4">{letter.symbol} </h1>
 
-      <div className="mb-4">
-        <p>{ t("letter.example") }: <strong>{letter.example.word}</strong>
-        </p>
-        <p>{t("letter.transcription") }: {letter.example.transcription}</p>
-        <p>{ t("letter.translation") }: {letter.example.translation}</p>
-        <AudioButton src={letter.example.audio} />
-      </div>
-
-      {related.length > 0 && (
-        <div>
-          <h2 className="text-2xl font-bold mb-2">
-            { t("letter.related_words") }
-          </h2>
-          <ul className="list-disc pl-5">
-            {related.map((r, i) => (
-              <li key={i}>
-                {r.example.word} — {r.example.translation}
-              </li>
-            ))}
-          </ul>
+      <div className="grid md:grid-cols-2">
+        <div className="mb-4">
+          <button
+            onClick={toggleLearned}
+            className={`mt-4 px-4 py-2 rounded-lg ${
+              isLetterLearned ? "bg-green-500 text-white" : "bg-gray-300"
+            }`}
+          >
+            {isLetterLearned
+              ? t("letter.is_learned")
+              : t("letter.is_not_learned")}
+          </button>
+          <p className="text-xl mb-2">
+            {t("letter.similar")}: {letter.sound}
+          </p>
+          <p>
+            {t("letter.example")}: <strong>{letter.example.word}</strong>
+          </p>
+          <p>
+            {t("letter.transcription")}: {letter.example.transcription}
+          </p>
+          <p>
+            {t("letter.translation")}: {letter.example.translation}
+          </p>
+          <AudioButton src={letter.example.audio} />
         </div>
-      )}
+
+        {related.length > 0 && (
+          <div>
+            <h2 className="text-2xl font-bold mb-2">
+              {t("letter.related_words")}
+            </h2>
+            <ul className="list-disc pl-5">
+              {related.map((r, i) => (
+                <li key={i}>
+                  {r.example.word} — {r.example.translation}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

@@ -12,7 +12,9 @@
         "georgian_letters": "Georgian letter",
         "equals": "English equivalent",
         "new_game": "New game",
-        "remove_letter": "Click to remove the letter"
+        "remove_letter": "Click to remove the letter",
+        "switcher_unlearned":"Not yet learned letters",
+        "switcher_all":"All letters"
     },
     "buttons": {
         "listen": "Listen to the word",
@@ -31,6 +33,8 @@
         "next": "Next ⏭️",
         "not_found": "Letter does not exist",
         "show_example": "Show example",
-        "hide_example": "Hide example"
+        "hide_example": "Hide example",
+        "is_learned": "✅ Learned",
+        "is_not_learned": "📖 Mark as learned"
     }
 }
