@@ -44,8 +44,8 @@ export default function LetterPage({ alphabet }) {
 
   return (
     <div className="p-6">
-      <div className="flex justify-between items-center mb-4">
-        <Link to="/" className="text-blue-500 underline">
+      <div className="flex justify-between items-center mb-4 flex-wrap md:flex-nowrap">
+        <Link to="/" className="text-blue-500 underline pb-4">
           {t("letter.back_home")}
         </Link>
 
