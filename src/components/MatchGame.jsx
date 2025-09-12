@@ -4,10 +4,10 @@ import { filterAlphabet, getLearnedNumber } from "../utils/progress";
 
 export default function MatchGame({ alphabet }) {
   const [pairs, setPairs] = useState([]);
-  const [russianColumn, setSimilarToColumn] = useState([]);
+  const [similarToColumn, setSimilarToColumn] = useState([]);
   const [selected, setSelected] = useState(null);
   const [matches, setMatches] = useState([]);
-  const [status, setStatus] = useState(null); // "success" | "error" | null
+  const [status, setStatus] = useState(null);
   const { t } = useTranslation();
   const [onlyUnlearned, setOnlyUnlearned] = useState(false);
 
@@ -96,7 +96,7 @@ export default function MatchGame({ alphabet }) {
             <button
               key={i}
               onClick={() => handleClick("ge", l)}
-              className={`block w-full p-3 mb-2 rounded-xl border text-xl ${
+              className={`block w-full p-2 md:p-3 mb-2 rounded-xl border text-xl ${
                 matches.includes(l.symbol)
                   ? "bg-green-300 cursor-default"
                   : selected?.type === "ge" &&
@@ -114,11 +114,11 @@ export default function MatchGame({ alphabet }) {
           <h3 className="font-semibold mb-2 text-center">
             {t("games.equals")}
           </h3>
-          {russianColumn.map((l, i) => (
+          {similarToColumn.map((l, i) => (
             <button
               key={i}
               onClick={() => handleClick("ru", l)}
-              className={`block w-full p-3 mb-2 rounded-xl border text-xl ${
+              className={`block w-full p-2 md:p-3 mb-2 rounded-xl border text-xl ${
                 matches.includes(l.symbol)
                   ? "bg-green-300 cursor-default"
                   : selected?.type === "ru" &&
