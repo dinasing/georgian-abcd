@@ -23,5 +23,5 @@ export function filterAlphabet(alphabet, onlyUnlearned = false) {
 
 export function getLearnedNumber() {
     const data = localStorage.getItem(STORAGE_KEY);
-    return data ? Object.keys(JSON.parse(data)).length : {};
+    return data ? Object.keys(JSON.parse(data)).length : 0;
 }

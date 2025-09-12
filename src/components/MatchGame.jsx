@@ -9,7 +9,7 @@ export default function MatchGame({ alphabet }) {
   const [matches, setMatches] = useState([]);
   const [status, setStatus] = useState(null); // "success" | "error" | null
   const { t } = useTranslation();
-  const [onlyUnlearned, setOnlyUnlearned] = useState(true);
+  const [onlyUnlearned, setOnlyUnlearned] = useState(false);
 
   const NUMBER_OF_LETTERS_PER_GAME = 6;
 
