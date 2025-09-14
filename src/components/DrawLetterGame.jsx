@@ -47,7 +47,6 @@ export default function DrawLetterGame({ alphabet }) {
   };
 
   const startDrawing = (e) => {
-    e.stopPropagation();
     if (!ctxRef.current) return;
     setIsDrawing(true);
     ctxRef.current.beginPath();
@@ -152,12 +151,13 @@ export default function DrawLetterGame({ alphabet }) {
           ref={canvasRef}
           width={300}
           height={300}
-          className="border rounded-xl bg-white"
+          className="border rounded-xl bg-white touch-none"
           onMouseDown={startDrawing}
           onMouseMove={draw}
           onMouseUp={stopDrawing}
           onMouseLeave={stopDrawing}
           onTouchStart={(e) => {
+            e.preventDefault();
             const touch = e.touches[0];
             const rect = e.target.getBoundingClientRect();
             startDrawing({
@@ -168,6 +168,7 @@ export default function DrawLetterGame({ alphabet }) {
             });
           }}
           onTouchMove={(e) => {
+            e.preventDefault();
             const touch = e.touches[0];
             const rect = e.target.getBoundingClientRect();
             draw({
@@ -177,7 +178,10 @@ export default function DrawLetterGame({ alphabet }) {
               },
             });
           }}
-          onTouchEnd={stopDrawing}
+          onTouchEnd={(e) => {
+            e.preventDefault();
+            stopDrawing();
+          }}
         />
       </div>
 
