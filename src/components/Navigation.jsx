@@ -9,6 +9,7 @@ export default function Navigation() {
   const links = [
     { to: "/game/match", label: t("nav.match") },
     { to: "/game/build", label: t("nav.build") },
+    { to: "/game/draw", label: t("nav.draw") },
   ];
 
   function LanguageSwitcher() {

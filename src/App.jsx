@@ -1,5 +1,6 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import AlphabetGrid from "./components/AlphabetGrid";
+import DrawLetterGame from "./components/DrawLetterGame";
 import LetterPage from "./components/LetterPage";
 import MatchGame from "./components/MatchGame";
 import Navigation from "./components/Navigation";
@@ -17,6 +18,7 @@ export default function App() {
         <Route path="/" element={<AlphabetGrid alphabet={ALPHABET} />} />
         <Route path="/game/match" element={<MatchGame alphabet={ALPHABET} />} />
         <Route path="/game/build" element={<WordBuilderGame alphabet={ALPHABET} />} />
+        <Route path="/game/draw" element={<DrawLetterGame alphabet={ALPHABET} />} />
         <Route path="/letter/:symbol" element={<LetterPage alphabet={ALPHABET} />} />
       </Routes>
     </Router>
