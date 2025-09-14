@@ -47,6 +47,7 @@ export default function DrawLetterGame({ alphabet }) {
   };
 
   const startDrawing = (e) => {
+    e.stopPropagation();
     if (!ctxRef.current) return;
     setIsDrawing(true);
     ctxRef.current.beginPath();
