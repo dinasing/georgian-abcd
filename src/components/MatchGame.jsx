@@ -82,7 +82,7 @@ export default function MatchGame({ alphabet }) {
   return (
     <div className="p-6">
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-2xl font-bold">🎮 {t("games.match_name")}</h2>
+        <h2 className="text-2xl font-bold">🧩 {t("games.match_name")}</h2>
       </div>
       <p className="mb-4 text-gray-600">{t("games.match_description")}</p>
 
